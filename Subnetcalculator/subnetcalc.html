@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subnet Calculator</title>
+</head>
+<body>
+    <label for="txt1"><b>IP Address</b></label><input type="text" id="Input_IP_Address">
+    <label for="txt1"><b>Subnetmask/CIDR</b></label><input type="text" id="Input_Subnetmask">
+    <button id = "Btn_Analyze">Analyze</button>
+    <button id = "Btn_NextSubnet">Move to next Subnet</button><br>
+    <p id="CheckvalidityofIP"></p>
+    <table id ="Subnetinformation">
+        <tr>
+            <td>IP Address:</td>
+            <td id="HTML_IP_Address"></td>
+        </tr>
+        <tr>
+            <td>Usable IP Address range:</td>
+            <td id="HTML_Usuable_IP_Address_range"></td>
+        </tr>
+        <tr>
+            <td>Network Address:</td>
+            <td id="HTML_Subnet_ID"></td>
+        </tr>
+        <tr>
+            <td>Broadcast:</td>
+            <td id="HTML_Broadcast"></td>
+        </tr>
+        <tr>
+            <td>Subnetmask:</td>
+            <td id="HTML_Subnetmask"></td>
+        </tr>
+        <tr>
+            <td>CIDR Notation:</td>
+            <td id="HTML_CIDR_Notation"></td>
+        </tr>
+        <tr>
+            <td>IP Class:</td>
+            <td id="HTML_Networkclass"></td>
+        </tr>
+        <tr>
+            <td>Binary Subnetmask:</td>
+            <td id="HTML_Subnetmask_Binary"></td>
+        </tr>
+        <tr>
+            <td>Total number of hosts:</td>
+            <td id="HTML_TotalNumberofHosts"></td>
+        </tr>
+        <tr>
+            <td>Usable number of hosts:</td>
+            <td id="HTML_UsableNumberofHosts"></td>
+        </tr>
+    </table><br>
+    <section>
+        <p><b>Already Calculated Subnets</b> <button id = "Btn_SaveToCSV">Save to CSV</button></p>
+
+        <p id = "HTML_CalculatedSubnets"></p>  
+    </section>
+    <script src="subnetcalc.js"></script>
+</body>
+</html>
