@@ -37,11 +37,10 @@ function ValidIP (IP_Address_octets) {
 
 //Detects if the Subnetmask is valid, CIDR notation (1-32) is also considered valid.
 function ValidSubnetmask(Subnetmask){
-    debugger;
     let notfull_octet = "(255|254|252|248|240|224|192|128|0)";
     let full_octet = "255.";
     let emptyoctet = "0";
-    let ValidSubnetmask_Regex = new RegExp("^(" + notfull_octet + "\." + emptyoctet + "\." + emptyoctet + "\." + emptyoctet + "$|^" + full_octet + notfull_octet + "\." + emptyoctet + "\." + emptyoctet + "$|^" + full_octet + full_octet + notfull_octet + "." + emptyoctet + "$|^" + full_octet + full_octet + full_octet + notfull_octet + "|[1-9]|[12][0-9]|3[0-2])$");
+    let ValidSubnetmask_Regex = new RegExp("^(" + notfull_octet + "." + emptyoctet + "." + emptyoctet + "." + emptyoctet + "$|^" + full_octet + notfull_octet + "." + emptyoctet + "." + emptyoctet + "$|^" + full_octet + full_octet + notfull_octet + "." + emptyoctet + "$|^" + full_octet + full_octet + full_octet + notfull_octet + "|[1-9]|[12][0-9]|3[0-2])$");
     if (ValidSubnetmask_Regex.exec(Subnetmask) !== null){
         return true;
     }    
