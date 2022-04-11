@@ -30,17 +30,18 @@ function Get_HTML_Subnetmask_CIDR(){
 
 //Detects if the IP Address is valid
 function ValidIP (IP_Address_octets) {
-    if (((IP_Address_octets.length == 4 && IP_Address_octets[0] > 0 && IP_Address_octets[0] < 256) && IP_Address_octets[1] > -1 && IP_Address_octets[1] < 256 && IP_Address_octets[2] > -1 && IP_Address_octets[2] < 256 && IP_Address_octets[3] > -1 && IP_Address_octets[3] < 256) && (!IP_Address_octets[0].startsWith("0") || IP_Address_octets[0].length == 1) && (!IP_Address_octets[1].startsWith("0") || IP_Address_octets[1].length == 1) && (!IP_Address_octets[2].startsWith("0") || IP_Address_octets[2].length == 1) && (!IP_Address_octets[3].startsWith("0") || IP_Address_octets[3].length == 1)) {   
+    if (IP_Address_octets.length == 4 && IP_Address_octets[0] > 0 && IP_Address_octets[0] < 256 && IP_Address_octets[1] > -1 && IP_Address_octets[1] < 256 && IP_Address_octets[2] > -1 && IP_Address_octets[2] < 256 && IP_Address_octets[3] > -1 && IP_Address_octets[3] < 256) {   
         return true;
     }
 }
 
 //Detects if the Subnetmask is valid, CIDR notation (1-32) is also considered valid.
 function ValidSubnetmask(Subnetmask){
+    debugger;
     let notfull_octet = "(255|254|252|248|240|224|192|128|0)";
     let full_octet = "255.";
     let emptyoctet = "0";
-    let ValidSubnetmask_Regex = new RegExp(((notfull_octet + "." + emptyoctet + "." + emptyoctet + "." + emptyoctet) + "|" + (full_octet + notfull_octet + "." + emptyoctet + "." + emptyoctet) + "|" + (full_octet + full_octet + notfull_octet + "." + emptyoctet) + "|" + (full_octet + full_octet + full_octet + notfull_octet) + "|" + "[1-32]"));
+    let ValidSubnetmask_Regex = new RegExp("^(" + notfull_octet + "\." + emptyoctet + "\." + emptyoctet + "\." + emptyoctet + "$|^" + full_octet + notfull_octet + "\." + emptyoctet + "\." + emptyoctet + "$|^" + full_octet + full_octet + notfull_octet + "." + emptyoctet + "$|^" + full_octet + full_octet + full_octet + notfull_octet + "|[1-9]|[12][0-9]|3[0-2])$");
     if (ValidSubnetmask_Regex.exec(Subnetmask) !== null){
         return true;
     }    
